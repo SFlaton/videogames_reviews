@@ -23,6 +23,7 @@ class GamesController < ApplicationController
     end
 
   end
+
   protected
 
   def set_category
