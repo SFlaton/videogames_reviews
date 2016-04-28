@@ -12,6 +12,10 @@ class GamesController < ApplicationController
 
   def show
     @game = @category.games.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: { games: @games } }
   end
 
   def create
@@ -19,10 +23,13 @@ class GamesController < ApplicationController
     @game.category = @category
 
     if @game.save
-      redirect_to category_game_path(@category, @game)
+      format.html { redirect_to category_game_path(@category, @game) }
+      format.json {render :show, :title, :created }
+    else
+      format.html { render :new }
     end
-
   end
+
 
   protected
 
