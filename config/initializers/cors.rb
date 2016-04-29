@@ -1,7 +1,7 @@
 class VideogameReviews::Application
   config.middleware.insert_before 0,  "Rack::Cors", debug: true, logger: (-> { Rails.logger }) do
     allow do
-      origins 'localhost:3000', '127.0.0.1:3000', "http://locksmith-hamster-16737.bitballoon.com/"
+      origins 'localhost:3000', '127.0.0.1:3000', 'locksmith-hamster-16737.bitballoon.com'
 
       resource '/cors',
         headers: :any,
