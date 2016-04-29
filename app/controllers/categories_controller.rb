@@ -4,8 +4,17 @@ class CategoriesController < ApplicationController
     @categories = Category.all
 
     respond_to do |f|
-      f.html 
-      f.json { render json: { category: @category, games: @games } }
+      f.html
+      f.json { render json: { categories: @categories } }
+    end
+  end
+
+  def show
+    @category = Category.find(params[:id])
+
+    respond_to do |f|
+      f.html
+      f.json { render json: { category: @category, games: @category.games } }
     end
   end
 
