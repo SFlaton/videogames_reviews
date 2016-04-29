@@ -7,15 +7,16 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render json: { category: @category, games: @games } }
-      end
+    end
   end
 
   def show
     @game = @category.games.find(params[:id])
 
     respond_to do |format|
-      format.html { render :show }
+      format.html
       format.json { render json: { games: @games } }
+    end
   end
 
   def create
