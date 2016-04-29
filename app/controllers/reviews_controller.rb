@@ -1,16 +1,16 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = @games.reviews
+    @reviews = @game.reviews
 
     respond_to do |format|
       format.html
-      format.json { render json: { games: @games, reviews: @reviews } }
+      format.json { render json: { game: @game, reviews: @reviews } }
     end
   end
 
   def show
-    @review = @games.review.find(params[:id])
+    @review = @game.reviews.find(params[:id])
 
     respond_to do |format|
       format.html
