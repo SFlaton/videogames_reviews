@@ -15,7 +15,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: { game: @game, category: @category } }
+      format.json { render json: { game: @game, category: @category, reviews: @games.reviews} }
     end
   end
 
